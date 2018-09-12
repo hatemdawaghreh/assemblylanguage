@@ -1,0 +1,50 @@
+# This program compares two word-sized values store in registers r2 and r3, compares them, and returns the highest one.
+
+
+.global _start
+
+_start:
+	    
+    movia r2, 4
+    movia r3, 6
+    
+    call MaxFunction
+    
+    movia r2, 7
+    movia r3, 8
+    
+    call MaxFunction
+    
+    movia r2, 10
+    movia r3, 3
+    
+    call MaxFunction
+    
+    movia r2, -1
+    movia r3, 2
+    
+  	call MaxFunction
+    
+    _end: 
+    
+    	br _end
+        
+   MaxFunction: 
+   
+   # Function 
+   
+   bgt r2, r3, Number1Large
+   
+   br Number2Large
+   
+   Number1Large:
+	mov r4, r3
+    ret
+    
+   Number2Large:
+	mov r4, r2
+    
+    ret
+    
+    .end 
+
